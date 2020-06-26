@@ -1,0 +1,30 @@
+This README gives general information on how to install all the dependencies of the CellGPU code (CPU branch only). Th idea is that all packages will be installed locally and thus it can be used in a cluster too. As stated this works for the CPU branch only, thus all gpu code needs to be removed before compiling, otherwise one needs to install the CUDA toolkits package, but it needs root access and thus can only be done in your personal computer.
+
+There are currently 2 odt files in this folder that have all the necessary commands on how to install all the necessary packages manually. They are "Cluster_install.odt", to install in the cluster, and "Ubuntu_install.odt", to install in your personal computer. The "Ubuntu_install.odt" is a simple compilation of apt-get commands that download the latest versions of the packages in the ubuntu repository and install them directly in your pc. This needs root access and thus should only be used in your personal computer. The "Cluster_install.odt" is a larger compilation of commands that allows the user to install all packages locally, thus not needing root access, which is more appropriate when using the cluster. There are three important warnings in the odt file so read them carefully. Both Installation methods have been fully tested for the specific package versions written, thus it is highly recommended that the same versions are used again, otherwise there might be compatibility issues.
+
+Finnally, there is also a bash script that can do the local instalation, "Cluster_install.odt", all by itself. One just needs to use the command "bash INSTALL.sh" to run the script. It is important to note that the script, as default, will not install any package, thus I recommend using first the "bash INSTALL.sh -z" option to see the help function of the script. If one wants to install all packages then the command to use is "bash INSTALL.sh -y true". This will make a full local installation which may take several hours. If one does not want to install a specific package, one can pick and choose using the help function. Warning: If you are not installing all packages, then carefully look at the help function since some packages need to know their dependencies path.
+
+There is currently a total of 13 packages that are necessary to install the CPU branch of the CellGPU code on the cluster. 11 full installs and 2 include folders. The 11 full installs are taken care by the option abve while the 2 include folders only need to be included in the compilation makefile of the CellGPU code by copy pasting their PATH. Here is a comprehensive list of all packages and the versions used:
+
+Full instalations:
+
+gcc-4.8.5                               (to run the c++11 code)
+cmake-3.13.1                            (to compile CGAL during the installation process)
+gmp-6.1.2                               (dependency of CGAL)
+mpfr-4.0.1                              (dependency of CGAL)
+boost-1.62.0                            (dependency of CGAL)
+CGAL-4.9                                (package that is used to do the delaunay triangulation in CellGPU)
+zlib-1.2.11                             (dependency of netcdf)
+hdf5-1.10.4                             (dependency of netcdf)
+netcdf-c-4.6.2                          (dependency of netcdf c++)
+netcdf-cxx-4.2                          (package used to print the simulation data)
+netcdf-cxx4-4.3.0                       (package used to print the simulation data)
+
+
+Include folders:
+
+eigen-eigen-323c052e1731                (package necessary for some matrix operations)
+include                                 (folder containing some include code from CUDA toolkits, this is necessary for compilation of CellGPU)
+
+
+PS. the include forlder from CUDA tookits can probably be removed if the existing includes associated with the CUDA toolkits are removed from the CellGPU code. Unfortunatly I never really bothered with that, thus I just use it for compilation and nothing else.
