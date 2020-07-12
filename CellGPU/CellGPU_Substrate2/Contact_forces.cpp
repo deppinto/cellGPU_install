@@ -352,7 +352,7 @@ int main(){
 	AvgForcey[nn]+=meanForce.y/N;
 	AvgForce[nn]+=meanF/N;
 
-	AvgEnergy[nn]=meanEnergy/N;
+	AvgEnergy[nn]+=meanEnergy/N;
 
 	//cout<<"STRESS: "<<meanNormalStress<<" "<<meanShearStress<<" "<<meanForce.x/N<<" "<<meanForce.y/N<<" "<<meanEnergy/N<<endl;
 
