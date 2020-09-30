@@ -12,7 +12,7 @@ NetCDF-4 C++ (latest version):
 
 Eighen (latest version):
 
-
+- sudo apt-get install libeigen3-dev
 
 CUDA (latest version):
 
