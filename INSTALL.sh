@@ -136,6 +136,7 @@ if [ "$GCC" = true ] ;then
 	fi
 	tar -xzvf gcc-4.8.5.tar.gz
 	cd gcc-4.8.5
+	./contrib/download_prerequisites
 	mkdir build && cd build
 	../configure --prefix="$BASEDIR"/CellGPUPackages/gcc-4.8.5 --enable-languages=c,c++,fortran,go --disable-multilib
 	make
