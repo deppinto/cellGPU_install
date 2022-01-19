@@ -268,7 +268,7 @@ if [ "$CGAL" = true ] ;then
 	tar -xf CGAL-4.9.tar.xz
 	cd  CGAL-4.9
 	mkdir build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX="$BASEDIR"/CellGPUPackages/CGAL-4.9 -DBOOST_INCLUDEDIR="$BOOSTDIR" -DBOOST_LIBRARYDIR="$BOOSTDIR"/lib/  -DCGAL_HEADER_ONLY=OFF -DCMAKE_BUILD_TYPE=Release .. 
+	cmake -DCMAKE_INSTALL_PREFIX="$BASEDIR"/CellGPUPackages/CGAL-4.9 -DBOOST_INCLUDEDIR="$BOOSTDIR"/include/ -DBOOST_LIBRARYDIR="$BOOSTDIR"/lib/  -DCGAL_HEADER_ONLY=OFF -DCMAKE_BUILD_TYPE=Release .. 
 	make
 	make install
 
@@ -342,8 +342,8 @@ if [ "$NETCDFC" = true ] ;then
 	if [ "$DOWNLOAD" = true ] ;then
 		wget "https://github.com/Unidata/netcdf-c/archive/v4.6.2.tar.gz"
 	fi
-	tar -xzf "netcdf-c-4.6.2.tar.gz"
-	cd "netcdf-c-4.6.2"
+	tar -xf v4.6.2.tar.gz
+	cd netcdf-c-4.6.2
 	mkdir build && cd build
 	CPPFLAGS='-I"$HDF5DIR"/include -I"$ZLIBDIR"/include' LDFLAGS='-L"$HDF5DIR"/lib -L"$ZLIBDIR"/lib' ../configure --prefix="$BASEDIR/CellGPUPackages/netcdf-c-4.6.2"
 	make
@@ -401,7 +401,7 @@ if [ "$NETCDF43" = true ] ;then
 	if [ "$DOWNLOAD" = true ] ;then
 		wget "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
 	fi
-	tar -xzf netcdf-cxx4-4.3.0.tar.gz
+	tar -xf v4.3.0.tar.gz
 	cd netcdf-cxx4-4.3.0
 	mkdir build && cd build
 	CPPFLAGS='-I"$NETCDFDIR"/include' LDFLAGS='-L"$NETCDFDIR"/lib' ../configure --prefix="$BASEDIR"/CellGPUPackages/netcdf-cxx4-4.3.0
