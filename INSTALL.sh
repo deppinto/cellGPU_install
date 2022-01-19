@@ -46,7 +46,7 @@ helpFunction()
    exit 1 # Exit script after printing help
 }
 
-while getopts "a:b:c:d:e:f:g:h:i:j:k:s:t:v:w:x:y:z:" opt
+while getopts "a:b:c:d:e:f:g:h:i:j:k:u:s:t:v:w:x:y:z:" opt
 do
    case "$opt" in
       a ) GCC="$OPTARG" ;;
@@ -60,6 +60,7 @@ do
       i ) NETCDFC="$OPTARG" ;;
       j ) NETCDF42=$OPTARG ;;
       k ) NETCDF43="$OPTARG" ;;
+      u ) DOWNLOAD="$OPTARG" ;;
       s ) NETCDFDIR="$OPTARG" ;;
       t ) HDF5DIR="$OPTARG" ;;
       v ) ZLIBDIR="$OPTARG" ;;
